@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8em 0;
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 10px;
+}
+
+#music {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+canvas {
+    margin-top: 10px;
+    background: linear-gradient(rgb(70, 1, 1), rgb(173, 6, 6));
+    image-rendering: pixelated;
+}
