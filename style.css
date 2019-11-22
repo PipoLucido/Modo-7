@@ -26,6 +26,7 @@ header h1 {
 
 canvas {
     margin-top: 10px;
-    background: linear-gradient(rgb(70, 1, 1), rgb(173, 6, 6));
+    background: url("http://www.graciaviva.cat/png/big/13/138971_pixel-art-space-background.png");
     image-rendering: pixelated;
+    background-size: 100%;
 }

@@ -154,27 +154,35 @@ function _createEntities() {
     //ENTITY
     //entities.push(new Entity(90, 0, -220, 'yellow'));
 
+    //PLANOS
+
+
+
+    entities.push(new Flat(0, 0, -181, skyDown));
+    entities.push(new Flat(0, 0, -363, skyDown));
+    entities.push(new Flat(0, 0, -545, skyDown));
+    entities.push(new Flat(0, 0, -636, skyDown));
+
+
+
+
     //SPRITES
     entities.push(new Sprite(-150, 0, -220, station));
 
-    entities.push(new Sprite(80, 0, 80, station));
+    entities.push(new Sprite(80, 0, -120, station));
 
 
     entities.push(new Sprite(0, 0, -180, shipplayer));
 
-    //PLANOS
 
-    entities.push(new Flat(100, 0, -745, skyDown));
-
-    entities.push(new Flat(100, 0, -1640, skyDown));
 
 
     entities.sort(_zSort);
     console.log(entities)
-    entities[4].width = 56;
-    entities[4].height = 80;
-    entities[3].width = 13;
-    entities[3].height = 8;
+    entities[3].width = 56;
+    entities[3].height = 80;
+    entities[5].width = 13;
+    entities[5].height = 8;
 
 }
 
@@ -205,7 +213,7 @@ function _drawGroundLines() {
         var scalingFactor = camera.fov / (camera.z - z);
         var y = camera.y * scalingFactor + vanishingPoint.y;
 
-        ctx.fillRect(0, y, c.width, 1);
+        // ctx.fillRect(0, y, c.width, 1);
     }
 }
 
@@ -230,9 +238,9 @@ function update() {
 
     //SPRITES UPDATE
     //PLAYER SHIP//////////////////////////////////////
-    entities[3].z = camera.z - 60;
-    entities[3].y = camera.y - 30;
-    entities[3].x = camera.x;
+    entities[5].z = camera.z - 60;
+    entities[5].y = camera.y - 30;
+    entities[5].x = camera.x;
 
     //RANGOS EN LOS QUE SE PUEDE MOVER EL PLAYER EN X
     //entities[3].x = (Math.sin(t * 0.6) * 100 * 0.3) + 30;
@@ -243,7 +251,8 @@ function update() {
 
 
 
-
+    console.log("camera" + camera.z)
+    console.log("nave" + entities[5].z)
 
 
     //PLANO REPETIR////////////////
@@ -263,6 +272,7 @@ function render() {
     for (var i = 0; i < l; i++) {
         entities[i].render();
     }
+
 }
 
 var lt = Date.now()
