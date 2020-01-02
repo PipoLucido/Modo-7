@@ -225,6 +225,9 @@ function _drawGroundLines() {
     }
 }
 
+
+
+//gunshipFIRE
 let fFrame = true;
 
 
@@ -248,6 +251,18 @@ function logKey(e) {
 
     }
 }
+
+var el = document.getElementById('body');
+
+el.onclick = function() {
+    fFrame = false;
+    //console.log(e.key);
+    var gunshot = new Audio('gunshot.wav');
+
+    gunshot.play();
+};
+
+//gunshipFIRE
 
 
 function update() {
@@ -343,8 +358,14 @@ function frame() {
     var ct = Date.now()
     if (ct - lt > FRAME_TIME) {
         lt = ct;
+
+
         update();
+
+
         render();
+
+
     }
 }
 
@@ -370,6 +391,12 @@ function init() {
     frame();
 }
 
-init();
+
+window.onload = function() {
+    console.log("cargo todo")
+    init();
+}
+
+
 
 //PIPO_LUCIDOz
