@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <h1>Snes Mode 7 Engine</h1>
     <p>Warship Defender</p>
-
+    <p onclick="onmusic()" id="musicBtn">Music off</p>
 </header>
 
 <body id="body">
@@ -22,13 +22,29 @@
     <img style="display:none" id="shipplayer" src="https://opengameart.org/sites/default/files/spaceship4.png" />
 
     <img style="display:none" id="skyDown" src="https://i.pinimg.com/originals/24/71/8a/24718a3f394fc05569ac845adb616889.jpg">
+    <img style="display:none" id="enemies" src="alien.png">
+
 
     <script src="mode7Algorithm.js"></script>
     <script>
         //HTML-script
 
         var audio = new Audio('keygen.mp3');
-        audio.play();
+        var audioOn = false;
+
+
+        function onmusic() {
+
+            if (audioOn == false) {
+                audio.play();
+                document.getElementById("musicBtn").innerHTML = "Music on"
+                audioOn = true
+            } else {
+                audio.pause();
+                document.getElementById("musicBtn").innerHTML = "Music off"
+                audioOn = false
+            }
+        }
     </script>
 
     <p>'Z' or 'tap' to fire</p>

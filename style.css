@@ -36,3 +36,7 @@ canvas {
     margin: 0 auto;
     padding-top: 15px;
 }
+
+#musicBtn {
+    cursor: pointer!important;
+}

@@ -20,7 +20,8 @@ ctx.webkitImageSmoothingEnabled =
 var station = document.getElementById('station'),
     shipplayer = document.getElementById('shipplayer'),
     skyDown = document.getElementById('skyDown'),
-    shipfire = document.getElementById('shipfire')
+    shipfire = document.getElementById('shipfire'),
+    enemies = document.getElementById('enemies')
 
 // Virtual horizon for perspective calculation
 var vanishingPoint = {
@@ -168,6 +169,28 @@ function _createEntities() {
 
 
     //SPRITES
+
+    //enemies
+
+    entities.push(new Sprite(-15, 0, -299, enemies));
+
+    entities.push(new Sprite(-5, 0, -279, enemies));
+
+    entities.push(new Sprite(5, 0, -269, enemies));
+
+    entities.push(new Sprite(15, 0, -289, enemies));
+
+    //**fila 2 */
+
+    /* entities.push(new Sprite(0, 0, -289, enemies));
+
+     entities.push(new Sprite(0, 0, -289, enemies));
+
+     entities.push(new Sprite(0, 0, -289, enemies));*/
+
+    //enemies
+
+
     entities.push(new Sprite(-150, 0, -220, station));
 
     entities.push(new Sprite(80, 0, -120, station));
@@ -183,14 +206,37 @@ function _createEntities() {
 
 
     //size of Sprites
-    entities[4].width = 56;
-    entities[4].height = 80;
 
-    entities[3].width = 5;
-    entities[3].height = 5;
+    //enemies
+
+    entities[1].width = 13;
+    entities[1].height = 10;
+
+    entities[2].width = 13;
+    entities[2].height = 10;
+
+    entities[3].width = 13;
+    entities[3].height = 10;
 
     entities[4].width = 13;
-    entities[4].height = 8;
+    entities[4].height = 10;
+
+    //enemies
+
+
+    //station
+    entities[5].width = 56;
+    entities[5].height = 80;
+
+
+    //gunfire
+    entities[7].width = 5;
+    entities[7].height = 5;
+
+
+    //ship
+    entities[8].width = 13;
+    entities[8].height = 8;
 
 }
 
@@ -255,11 +301,15 @@ function logKey(e) {
 var el = document.getElementById('body');
 
 el.onclick = function() {
-    fFrame = false;
-    //console.log(e.key);
+
     var gunshot = new Audio('gunshot.wav');
 
-    gunshot.play();
+    if (fFrame == true) { gunshot.play(); }
+
+
+    fFrame = false;
+    //console.log(e.key);
+
 };
 
 //gunshipFIRE
@@ -287,28 +337,36 @@ function update() {
 
 
     //SPRITES UPDATE
+
+    //ENEMIES ///
+
+
+
+
+
+    //enemies
+
+
     //PLAYER SHIP//////////////////////////////////////
 
-
-
-
-    entities[4].z = camera.z - 60;
-    entities[4].y = camera.y - 30;
-    entities[4].x = camera.x;
+    //player
+    entities[8].z = camera.z - 60;
+    entities[8].y = camera.y - 30;
+    entities[8].x = camera.x;
 
 
 
     if (fFrame == true) {
-        entities[3].z = camera.z - 60
-        entities[3].y = camera.y - 27;
-        entities[3].x = camera.x;
+        entities[7].z = camera.z - 60
+        entities[7].y = camera.y - 27;
+        entities[7].x = camera.x;
         //fFrame = false;
     }
     if (fFrame == false) {
-        entities[3].z = entities[3].z - 18;
-        console.log(entities[3].z)
+        entities[7].z = entities[7].z - 18;
+        console.log(entities[7].z)
 
-        if (entities[3].z < -400) {
+        if (entities[7].z < -400) {
             console.log("desaparece tiro ")
             fFrame = true;
         }
