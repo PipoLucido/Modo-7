@@ -30,3 +30,9 @@ canvas {
     image-rendering: pixelated;
     background-size: 100%;
 }
+
+.twitter-tweet {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 15px;
+}

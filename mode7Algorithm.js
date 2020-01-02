@@ -19,7 +19,8 @@ ctx.webkitImageSmoothingEnabled =
 // Asset references
 var station = document.getElementById('station'),
     shipplayer = document.getElementById('shipplayer'),
-    skyDown = document.getElementById('skyDown')
+    skyDown = document.getElementById('skyDown'),
+    shipfire = document.getElementById('shipfire')
 
 // Virtual horizon for perspective calculation
 var vanishingPoint = {
@@ -158,10 +159,10 @@ function _createEntities() {
 
 
 
-    entities.push(new Flat(0, 0, -181, skyDown));
+    entities.push(new Flat(0, 0, -190, skyDown));
     entities.push(new Flat(0, 0, -363, skyDown));
-    entities.push(new Flat(0, 0, -545, skyDown));
-    entities.push(new Flat(0, 0, -636, skyDown));
+    //entities.push(new Flat(0, 0, -545, skyDown));
+    //entities.push(new Flat(0, 0, -636, skyDown));
 
 
 
@@ -174,15 +175,22 @@ function _createEntities() {
 
     entities.push(new Sprite(0, 0, -180, shipplayer));
 
-
+    entities.push(new Sprite(0, 0, -189, shipfire));
 
 
     entities.sort(_zSort);
     console.log(entities)
-    entities[3].width = 56;
-    entities[3].height = 80;
-    entities[5].width = 13;
-    entities[5].height = 8;
+
+
+    //size of Sprites
+    entities[4].width = 56;
+    entities[4].height = 80;
+
+    entities[3].width = 5;
+    entities[3].height = 5;
+
+    entities[4].width = 13;
+    entities[4].height = 8;
 
 }
 
@@ -217,8 +225,33 @@ function _drawGroundLines() {
     }
 }
 
+let fFrame = true;
+
+
+const log = document.getElementById('body');
+
+document.addEventListener('keypress', logKey);
+
+function logKey(e) {
+
+    if (e.key == 'z') {
+
+
+
+
+
+        fFrame = false;
+        console.log(e.key);
+        var gunshot = new Audio('gunshot.wav');
+
+        gunshot.play();
+
+    }
+}
+
+
 function update() {
-    // Move the camera in a sinus patten, yay magic numbers
+    // Move the camera in a sinus patten, yay magic numbersz
     var t = Date.now() * 0.001;
 
     //MOVE ON THE MAP
@@ -232,15 +265,42 @@ function update() {
     //vanishingPoint.x = (Math.sin(t * 0.6) * (c.width * 0.2)) + (c.width * 0.5);
     //vanishingPoint.y = (Math.sin(t * 0.5) * (c.height * 0.2)) + (c.height * 0.5) - 50;
 
+    //vanishingPoint.x = vanishingPoint.x + 1;
+
     //console.log("camera Z:" + camera.z)
 
 
 
     //SPRITES UPDATE
     //PLAYER SHIP//////////////////////////////////////
-    entities[5].z = camera.z - 60;
-    entities[5].y = camera.y - 30;
-    entities[5].x = camera.x;
+
+
+
+
+    entities[4].z = camera.z - 60;
+    entities[4].y = camera.y - 30;
+    entities[4].x = camera.x;
+
+
+
+    if (fFrame == true) {
+        entities[3].z = camera.z - 60
+        entities[3].y = camera.y - 27;
+        entities[3].x = camera.x;
+        //fFrame = false;
+    }
+    if (fFrame == false) {
+        entities[3].z = entities[3].z - 18;
+        console.log(entities[3].z)
+
+        if (entities[3].z < -400) {
+            console.log("desaparece tiro ")
+            fFrame = true;
+        }
+
+    }
+
+
 
     //RANGOS EN LOS QUE SE PUEDE MOVER EL PLAYER EN X
     //entities[3].x = (Math.sin(t * 0.6) * 100 * 0.3) + 30;
@@ -251,8 +311,8 @@ function update() {
 
 
 
-    console.log("camera" + camera.z)
-    console.log("nave" + entities[5].z)
+    // console.log("camera" + camera.z)
+    //console.log("nave" + entities[5].z)
 
 
     //PLANO REPETIR////////////////
@@ -312,4 +372,4 @@ function init() {
 
 init();
 
-//PIPO_LUCIDO
+//PIPO_LUCIDOz
