@@ -172,13 +172,13 @@ function _createEntities() {
 
     //enemies
 
-    entities.push(new Sprite(-15, 0, -299, enemies));
+    entities.push(new Sprite(-6, 0, -299, enemies));
 
     entities.push(new Sprite(-5, 0, -279, enemies));
 
     entities.push(new Sprite(5, 0, -269, enemies));
 
-    entities.push(new Sprite(15, 0, -289, enemies));
+    entities.push(new Sprite(5, 0, -289, enemies));
 
     //**fila 2 */
 
@@ -238,6 +238,16 @@ function _createEntities() {
     entities[8].width = 13;
     entities[8].height = 8;
 
+
+    console.log("enemie 2 z :" +
+        entities[2].z)
+
+    console.log("enemie 2 y :" +
+        entities[2].y)
+
+    console.log("enemie 2 x :" +
+        entities[2].x)
+
 }
 
 // Render the ground
@@ -271,7 +281,12 @@ function _drawGroundLines() {
     }
 }
 
-
+//enemiesLives
+let enemieOneNotDead = true;
+let enemieTwoNotDead = true;
+let enemieThreNotDead = true;
+let enemieFourNotDead = true;
+let enemieFiveNotDead = true;
 
 //gunshipFIRE
 let fFrame = true;
@@ -292,6 +307,7 @@ function logKey(e) {
         fFrame = false;
         console.log(e.key);
         var gunshot = new Audio('gunshot.wav');
+
 
         gunshot.play();
 
@@ -321,9 +337,9 @@ function update() {
 
     //MOVE ON THE MAP
     camera.x = Math.sin(t * 0.6) * 30 * 0.7;
-    camera.y = (Math.sin(t * 0.5) * 100 * 0.2) + 30;
-    camera.z = (Math.sin(t * 0.2) * 550 * 0.3) - 30;
-
+    //camera.y = (Math.sin(t * 0.6) * 100 * 0.2) + 28;
+    camera.z = (Math.sin(t * 0.4) * 180 * 0.3) - 85;
+    //camera.z = -85;
 
 
     //ROTATE CAMERA
@@ -351,26 +367,69 @@ function update() {
 
     //player
     entities[8].z = camera.z - 60;
-    entities[8].y = camera.y - 30;
+    entities[8].y = camera.y - 45;
     entities[8].x = camera.x;
 
 
 
     if (fFrame == true) {
         entities[7].z = camera.z - 60
-        entities[7].y = camera.y - 27;
+        entities[7].y = camera.y - 44;
         entities[7].x = camera.x;
         //fFrame = false;
     }
     if (fFrame == false) {
         entities[7].z = entities[7].z - 18;
-        console.log(entities[7].z)
+        //console.log("gunship z" + entities[7].z)
+        //console.log("gunship y" + entities[7].y)
+        //console.log("gunship x" + entities[7].x)
 
         if (entities[7].z < -400) {
-            console.log("desaparece tiro ")
+            //console.log("desaparece tiro ")
             fFrame = true;
         }
 
+    }
+
+    if (enemieOneNotDead == true && (entities[7].z <= entities[1].z) && (entities[7].y < 0 && entities[7].y > -20) && (entities[7].x < -15 && entities[7].x > -35)) {
+        console.log("colicion con enemie1")
+        var gunshotExplosion = new Audio('explotion.wav');
+        gunshotExplosion.play()
+        entities[1].height = 0
+        entities[1].width = 0 //destroy enemie
+        fFrame = true;
+        enemieOneNotDead = false
+    }
+
+
+    if (enemieTwoNotDead == true && (entities[7].z <= entities[2].z) && (entities[7].y < 0 && entities[7].y > -20) && (entities[7].x < 10 && entities[7].x > 0)) {
+        console.log("colicion con enemie2")
+        var gunshotExplosion = new Audio('explotion.wav');
+        gunshotExplosion.play()
+        entities[2].height = 0
+        entities[2].width = 0 //destroy enemie
+        fFrame = true;
+        enemieTwoNotDead = false
+    }
+
+    if (enemieThreNotDead == true && (entities[7].z <= entities[3].z) && (entities[7].y < 0 && entities[7].y > -20) && (entities[7].x < 0 && entities[7].x > -10)) {
+        console.log("colicion con enemie2")
+        var gunshotExplosion = new Audio('explotion.wav');
+        gunshotExplosion.play()
+        entities[3].height = 0
+        entities[3].width = 0 //destroy enemie
+        fFrame = true;
+        enemieThreNotDead = false
+    }
+
+    if (enemieFourNotDead == true && (entities[7].z <= entities[4].z) && (entities[7].y < 0 && entities[7].y > -20) && (entities[7].x < 15 && entities[7].x > 5)) {
+        console.log("colicion con enemie2")
+        var gunshotExplosion = new Audio('explotion.wav');
+        gunshotExplosion.play()
+        entities[4].height = 0
+        entities[4].width = 0 //destroy enemie
+        fFrame = true;
+        enemieFourNotDead = false
     }
 
 
