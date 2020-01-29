@@ -10,5 +10,5 @@ En breve estaré subiendo una primer versión del motor con una estructura de ar
 
 # NPM
 
-El uso de este motor está disponible en un módulo de NPM 
+El uso de este motor estará disponible en un módulo de NPM 
 Con una sola línea de instalación usted en su entorno de desarrollo dispondrá de todas las funcionalidades de el mismo y podrá aprovechar con el todas las características de las versiones más actuales de ECMASCRIPT.
