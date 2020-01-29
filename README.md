@@ -7,3 +7,8 @@ El modo 7 es un sistema de procesamiento gráfico desarrollado por Nintendo para
 
 Ahora mismo el motor gráfico se encuentra en proceso de acomodo. Los archivos se están restaurando para que la lectura y el uso del motor gráfico sea entendible por quien desee usarlo. 
 En breve estaré subiendo una primer versión del motor con una estructura de archivos explicada en este espacio..
+
+# NPM
+
+El uso de este motor está disponible en un módulo de NPM 
+Con una sola línea de instalación usted en su entorno de desarrollo dispondrá de todas las funcionalidades de el mismo y podrá aprovechar con el todas las características de las versiones más actuales de ECMASCRIPT.
