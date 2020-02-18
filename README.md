@@ -59,6 +59,9 @@ Utilizaremos un proyecto base alojado en github que tiene la siguiente estructur
 + webpack.config.js
 + .babelrc
 
+Proyecto:
+https://github.com/PipoLucido/Modo-7
+
 ## NPM
 
 Una vez con nuestra estructura necesitaremos el modulo que contiene todo el código del motor gráfico.  lo puedes descargar con la siguiente linea de comando en el directorio base de tu proyecto
