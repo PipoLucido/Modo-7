@@ -60,7 +60,8 @@ Utilizaremos un proyecto base alojado en github que tiene la siguiente estructur
 + .babelrc
 
 Proyecto:
-https://github.com/PipoLucido/Modo-7
+
+[https://github.com/PipoLucido/Modo-7](https://github.com/PipoLucido/Modo-7)
 
 ## NPM
 
