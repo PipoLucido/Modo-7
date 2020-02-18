@@ -78,3 +78,21 @@ Como estamos utilizando versiones de ECMASCRIPT que el navegador no soporta, uti
 
 ## Load Entities
 
+Para cargar entidades(sprites) y posterior mente ubicarlos en alguna ubicacion de el plano pseudo3D de el motor grafico debemos prodecer de la siguiente manera:
+En el archivo :
++ index.html 
+		Debemos crear una etiqueta img con la imagen que deseamos utilizar, display:none en style y un id para identificarla. 
+	
+Ejemplo:
+		
+
+`<img style="display:none"id="enemies"src="img/alien.png">`
+
+Luego en el archivo :
++ loadEntities.js
+debemos agregar un nuevo atributo con el nombre que deseemos dentro de ese objeto y asignarle por el id la imagen en que cargamos en el html
+
+Ejemplo:
+
+`enemies : document.getElementById('enemies')`
+
