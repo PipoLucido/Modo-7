@@ -72,3 +72,9 @@ Gracias a esto nosotros solo nos preocuparemos en programar los niveles, eventos
 
 Como estamos utilizando versiones de ECMASCRIPT que el navegador no soporta, utilizaremos webpack y babel para convertir nuestro codigo en un solo archivo .js que nuestro navegador comprenda sin problemas. para ello utilizaremos el proyecto base que puedes encontrar en este repositorio:
 [https://github.com/PipoLucido/webpack-babel-ES10](https://github.com/PipoLucido/webpack-babel-ES10)
+
+## index.js
+
+
+## Load Entities
+
