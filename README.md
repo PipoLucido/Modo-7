@@ -94,3 +94,27 @@ Ejemplo:
 
 `enemies : document.getElementById('enemies')`
 
+## Render Entities
+
+Luego de cargar nuestras entidades estamos listos para mostrarla en pantalla 
+en el archivo :
++ index.js
+encontramos una funcion llamada _createEntities() en la que en un array hacemos varios push de objetos, estos objetos son nuestras entidades.
+Hay 3 tipos de entidades en esta version del motor grafico. 
+
++ Flat : En donde plasmaremos una imagen en el plano(piso) en la ubicacion que le especifiquemos por parametros
+ `propiedad.entidades.push(new  modo7.Flat(0,  0,  -163,  entities.entities.skyDown,  propiedad));`
+ donde los parametros significan:
+  `modo7.Flat(X,  Y,  Z,  IMAGEN_CARGADA_DESDE_LOADENTITIES.JS,  PROPIEDADES_DE_CANVAS_IMPORTADO_DESDE_MODULO)`
+
++ Sprite : En donde plasmaremos un sprite(a modo de personaje, enemigo o objeto) en la ubicacion que le especifiquemos por parametros
+ `propiedad.entidades.push(new  modo7.Sprite(-6,  0,  -299,  entities.entities.enemies,  propiedad,15,15));`
+ donde los parametros significan:
+  `modo7.Sprite(X,  Y,  Z,  IMAGEN_CARGADA_DESDE_LOADENTITIES.JS,  PROPIEDADES_DE_CANVAS_IMPORTADO_DESDE_MODULO,ANCHO,LARGO)`
+ los parametros ANCHO y LARGO tienen problemas y estan en desarrollo, por tanto se encuentran desactivados.
+ 
++ Entity : En donde plasmaremos un cuadrado de color en la ubicacion que le especifiquemos por parametros
+ `propiedad.entidades.push(new  modo7.Entity(90,  0,  -220,  'yellow',  propiedad,5,5));`
+ donde los parametros significan:
+  `modo7.Entity(X,  Y,  Z,  IMAGEN_CARGADA_DESDE_LOADENTITIES.JS,  PROPIEDADES_DE_CANVAS_IMPORTADO_DESDE_MODULO,ANCHO,LARGO)`
+   los parametros ANCHO y LARGO funcionan correctamente.
