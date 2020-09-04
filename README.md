@@ -1,5 +1,5 @@
 # Welcome to My mode7 repository
-Hola! espero serte claro en esta documentación sobre la utilizacion del motor grafico! Happy Hacking.. 
+Hola! espero ser claro en esta documentación sobre la utilizacion del motor grafico! Happy Hacking.. 
 
 ## Motor Grafico
 Uno de los aspectos más importantes a la hora de desarrollar un videojuego es la elección del **motor gráfico** que se va a utilizar. El motor gráfico es la base sobre la que se construye todo el videojuego. El nombre de “motor” no es aleatorio, pues podríamos verlo como el conjunto de piezas que forman el motor de un coche, que es lo que hace que funcione. Luego ya depende de cada cual ponerle una carrocería más o menos bonita y decidir cómo se va a comportar el coche, siempre sujeto a los límites impuestos por el motor.
